@@ -22,8 +22,10 @@ public class UserApi {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public RestItemResult<UserDO> add(@RequestBody UserDO user) {
+
         RestItemResult<UserDO> result = new RestItemResult<>();
         user = userService.add(user);
+
         if (user != null) {
             result.setItem(user);
             result.setResult("success");
